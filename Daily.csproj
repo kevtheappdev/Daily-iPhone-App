@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{7A11F5C0-BC24-4B4D-81BF-944385122440}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Daily</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Daily</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchProfiling>true</MtouchProfiling>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>i386</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchProfiling>true</MtouchProfiling>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Calabash">
+      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.13.0\lib\Xamarin.iOS10\Calabash.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="Mono.Data.Sqlite" />
+    <Reference Include="System.Json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Daily.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <Compile Include="DailyLocalFetcher.cs">
+    </Compile>
+    <None Include="packages.config" />
+    <Compile Include="SQLite.cs" />
+    <Compile Include="Daily.cs" />
+    <Compile Include="Quote.cs" />
+    <Compile Include="Image.cs" />
+    <Compile Include="WordView.cs" />
+    <Compile Include="Word.cs" />
+    <Compile Include="LocationManager.cs" />
+    <Compile Include="LocationUpdatedEventArgs.cs" />
+    <Compile Include="Weather.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DailyView.cs" />
+    <Compile Include="DailyCoverView.cs" />
+    <Compile Include="QuoteView.cs" />
+    <Compile Include="EmptyClass.cs" />
+    <Compile Include="DImageView.cs" />
+    <Compile Include="WeatherView.cs" />
+    <Compile Include="DailyAPIFetcher.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <BundleResource Include="Resources\test.jpeg" />
+    <BundleResource Include="Resources\venue.jpeg" />
+    <BundleResource Include="Resources\food.jpeg" />
+    <BundleResource Include="Resources\image.png" />
+    <BundleResource Include="Resources\download.jpeg" />
+    <BundleResource Include="Resources\mountain.jpg" />
+    <BundleResource Include="Resources\canyon.jpg" />
+    <BundleResource Include="Resources\background_summer.png" />
+    <BundleResource Include="Resources\background.png" />
+    <BundleResource Include="Resources\Cloud-Refresh.png" />
+    <BundleResource Include="Resources\cloudy2_night.png" />
+    <BundleResource Include="Resources\cloudy2.png" />
+    <BundleResource Include="Resources\dunno.png" />
+    <BundleResource Include="Resources\fog_night.png" />
+    <BundleResource Include="Resources\fog.png" />
+    <BundleResource Include="Resources\light_rain.png" />
+    <BundleResource Include="Resources\overcast.png" />
+    <BundleResource Include="Resources\shower3.png" />
+    <BundleResource Include="Resources\snow4.png" />
+    <BundleResource Include="Resources\snow5.png" />
+    <BundleResource Include="Resources\sunny_night.png" />
+    <BundleResource Include="Resources\sunny.png" />
+    <BundleResource Include="Resources\tstorm1_night.png" />
+    <BundleResource Include="Resources\tstorm1.png" />
+    <BundleResource Include="Resources\tstorm3.png" />
+    <BundleResource Include="Resources\sunset.jpeg" />
+    <BundleResource Include="Resources\lights.jpeg" />
+    <BundleResource Include="Resources\newspaper.png" />
+    <BundleResource Include="Resources\quotes.png" />
+    <BundleResource Include="Resources\sun.png" />
+    <BundleResource Include="Resources\book.png" />
+    <BundleResource Include="Resources\image%402x.png" />
+    <BundleResource Include="Resources\book%402x.png" />
+    <BundleResource Include="Resources\quotes%402x.png" />
+    <BundleResource Include="Resources\sun%402x.png" />
+    <BundleResource Include="Resources\cog.png" />
+    <BundleResource Include="Resources\cog%402x.png" />
+    <BundleResource Include="Resources\share.png" />
+    <BundleResource Include="Resources\share%402x.png" />
+  </ItemGroup>
+</Project>
